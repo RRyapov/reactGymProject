@@ -1,26 +1,20 @@
 import { type FC } from "react";
-import { GeneralButton, StyledContainer } from "@assets/styles";
+import { StyledContainer } from "@assets/styles";
 import { ArticleTitle, MainTitle } from "@shared/ui/Typographies";
+import { Button } from "@shared/ui/Button";
 
 export const MoreInfo: FC = () => {
 	return (
 		<StyledContainer>
-			<MainTitle children={"Узнай больше"} />
+			<MainTitle content="Узнай больше" />
 			<StyledContainer
 				sx={{ margin: "unset !important", marginBottom: "35px !important" }}
 			>
-				<ArticleTitle
-					children={"Как тренироваться на развитие максимальной силы?"}
-				/>
-				<ArticleTitle
-					children={"Асимметрия мышц - что это и как с этим бороться?"}
-				/>
-				<ArticleTitle
-					children={"Первая помощь при растяжениях мышц и связок"}
-				/>
+				<ArticleTitle content="Как тренироваться на развитие максимальной силы?" />
+				<ArticleTitle content="Асимметрия мышц - что это и как с этим бороться?" />
+				<ArticleTitle content="Первая помощь при растяжениях мышц и связок" />
 			</StyledContainer>
-
-			<GeneralButton children={"Подробнее"} />
+			<Button title="Подробнее" />
 		</StyledContainer>
 	);
 };
