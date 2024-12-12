@@ -8,9 +8,12 @@ import { BuildOptions } from './types/types';
 
 
 
+
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
   const {mode, paths, port} = options;
   const isDev = mode === 'development';
+  const TerserPlugin = require("terser-webpack-plugin");
+  
 return {
   mode: mode ?? 'development',
   entry: paths.entry,
@@ -22,6 +25,10 @@ return {
   plugins: buildPlugins(options),
   module: {
     rules: buildLoaders(options),
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
 
   resolve: buildResolvers(options),

@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
 import { useChangeModalWindow } from "@shared/model/modalChangerStore/modalChangerStore";
 import { BuyItemProps } from "@shared/types/types";
-// import { GeneralButton } from "../buttons/buttons";
 // import { BuyItemButtonContainer } from "../buttons/buttonsContainers";
 import {
 	BuyItemBlock,
@@ -13,7 +12,6 @@ import {
 	BuyItemDescriptionBlock,
 	BuyItemDescription,
 	BuyItemButtonContainer,
-	GeneralButton,
 } from "@assets/styles";
 import {
 	ArticleTitle,
@@ -21,6 +19,7 @@ import {
 	BuyItemDescriptionLongRead,
 } from "../Typographies";
 import { PriceText } from "../Typographies";
+import { Button } from "../Button";
 // import { PriceText } from "../Typographies/Typographies";
 
 export const BuyItemFrame: FC<BuyItemProps> = (props) => {
@@ -44,23 +43,23 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 		<GeneralBuyItemBlock>
 			<BuyItemBlock>
 				<BuyItemTitleBlock>
-					<MainTitle children={title} />
+					<MainTitle content={title} />
 				</BuyItemTitleBlock>
 				<BuyItemDescriptionBlock>
 					<BuyItemDescription>
-						<BuyItemDescriptionLongRead children={longText} />
-						<PriceText children={price} />
+						<BuyItemDescriptionLongRead content={longText} />
+						<PriceText content={price} />
 						<BuyItemButtonContainer>
-							<GeneralButton
-								children={"Купить"}
+							<Button
+								title="Купить"
 								onClick={() => {
 									setOpenModalState(true);
 									setTimeout(() => setOpenModalState(false), 4000);
 								}}
 							/>
-							<GeneralButton
+							<Button
 								onClick={goBack}
-								children={"Назад"}
+								title="Назад"
 							/>
 						</BuyItemButtonContainer>
 					</BuyItemDescription>

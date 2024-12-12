@@ -5,6 +5,8 @@ import {
 	BottomNavigation,
 	List,
 	ListItem,
+	Container,
+	Typography,
 } from "@mui/material";
 
 // ============== Общие стили =================
@@ -44,6 +46,23 @@ export const BuyItemBorder = {
 };
 
 // ============== Стили Карточки продукта =================
+
+export const ProductsOnMainPage = styled(Box)({
+	height: "fit-content",
+});
+
+export const ProductCardOnMainPage = styled(Box)({
+	...FlexCenter,
+	flexDirection: "column",
+	justifyContent: "space-between !important",
+});
+
+export const ProductCardLoaderContainer = styled(Container)({
+	...FlexCenter,
+	margin: "25px 0px",
+	flexDirection: "row",
+	justifyContent: "space-between",
+});
 
 export const StyledContainer = styled(Box)({
 	...FlexCenter,
@@ -172,7 +191,6 @@ export const ModalContainer = styled(Box)({
 	position: "fixed",
 	top: 0,
 	left: 0,
-	// opacity: 1,
 	animation: "ani 2.5s forwards",
 	...FlexCenter,
 });
@@ -187,16 +205,6 @@ export const ModalContent = styled(Box)({
 	border: "3px solid #2fb3ff",
 });
 
-export const ProductsOnMainPage = styled(Box)({
-	height: "fit-content",
-});
-
-export const ProductCardOnMainPage = styled(Box)({
-	...FlexCenter,
-	flexDirection: "column",
-	justifyContent: "space-between !important",
-});
-
 // ============== Стили кнопок =================
 
 export const BuyItemButtonContainer = styled(Box)({
@@ -205,7 +213,7 @@ export const BuyItemButtonContainer = styled(Box)({
 	width: "300px",
 });
 
-export const GeneralButton = styled(Button)({
+export const StyledGeneralButton = styled(Button)({
 	textTransform: "unset",
 	...FlexCenter,
 
@@ -382,4 +390,119 @@ export const NavigationLi = styled(ListItem)({
 		borderColor: "#20a0db",
 		textShadow: "2px 1px 2px black",
 	},
+});
+
+// =================== стили Typographies =========================
+
+export const TitleContainer = styled(Box)({
+	...FlexCenter,
+	width: "100%",
+	height: "fit-content",
+	transition: "all 1s ease-in-out",
+	textAlign: "center",
+});
+
+export const PriceTextContainer = styled(Box)({
+	...FlexCenter,
+	width: "100%",
+	height: "fit-content",
+	transition: "all 1s ease-in-out",
+	textAlign: "center",
+	marginTop: "20px",
+	marginBottom: "20px",
+});
+
+export const LastWordContainer = styled(Box)({
+	display: "flex",
+	justifyContent: "end",
+	width: "100%",
+	height: "fit-content",
+	marginTop: "15px",
+	marginBottom: "25px",
+});
+
+export const ProgramShortReadContainer = styled(Box)({
+	marginBottom: "35px",
+	marginTop: "45px",
+});
+
+export const ProgramLongReadContainer = styled(Box)({
+	maxWidth: "750px",
+	width: "fit-content",
+	marginBottom: "35px",
+});
+
+export const StyledMainTitle = styled(Typography)({
+	fontFamily: '"Anton", sans-serif',
+	fontWeight: 700,
+	fontStyle: "normal",
+	fontSize: "14mm",
+	color: "#1dd6ff",
+	...TextShadow,
+});
+
+export const StyledMediumTitle = styled(Typography)({
+	...TextShadow,
+	fontFamily: '"Arial", cursive',
+	fontWeight: 400,
+	fontSize: "11mm",
+	fontStyle: "italic",
+
+	color: "#37dbff",
+	marginBottom: "25px",
+
+	textAlign: "center",
+	lineHeight: "50px",
+});
+
+export const StyledArticleText = styled(Typography)({
+	...FlexCenter,
+	...TextShadow,
+	fontFamily: '"Arial", cursive',
+	fontWeight: 400,
+	fontSize: "8mm",
+	fontStyle: "italic",
+
+	color: "#ffffff",
+
+	textAlign: "center",
+	lineHeight: "50px",
+});
+
+const ArticleTitleText = {
+	marginTop: "20px",
+
+	fontFamily: '"Arial", sans-serif',
+	fonWeight: 700,
+	fontStyle: "italic",
+	fontSize: "13mm",
+
+	color: "aliceblue",
+
+	transition: "all 0.5s ease-in-out",
+
+	"&:hover": {
+		cursor: "pointer",
+	},
+
+	"&:active": {
+		transform: "scale(0.975)",
+		transition: "none",
+	},
+};
+
+export const BuyItemLongRead = styled(Typography)({
+	...FlexCenter,
+	...TextShadow,
+	...ArticleTitleText,
+	fontSize: "8mm",
+	marginBottom: "-70px",
+	marginTop: "20px",
+	textAlign: "center",
+});
+
+export const StyledArticleTitle = styled(Typography)({
+	...FlexCenter,
+	...TextShadow,
+	...ArticleTitleText,
 });
