@@ -13,6 +13,8 @@ export function buildPlugins({mode, paths, analyzer, platform}: BuildOptions): C
   const isDev = mode === 'development';
   const isProd = mode === 'production';
 
+  
+
   const plugins: Configuration['plugins'] = [ new HtmlWebpackPlugin({template: paths.html, favicon: path.resolve(paths.assets, "yellow-strong-man.png" )}), new DefinePlugin({__PLATFORM__: JSON.stringify(platform)}), new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()];
 
   if(isDev){
