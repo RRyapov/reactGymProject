@@ -23,6 +23,7 @@ export const WeekProducts: FC = () => {
 						{products[0].productsForMainPage.map(
 							(item: ProductsForMainPageResponse) => (
 								<ProductCard
+									key={item.id}
 									imageUrl={item.imageUrl}
 									imageAlt={item.imageAlt}
 									titleText={item.productName}

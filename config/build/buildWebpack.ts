@@ -5,10 +5,6 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/types';
 
-
-
-
-
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
   const {mode, paths, port} = options;
   const isDev = mode === 'development';
@@ -16,7 +12,12 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
   
 return {
   mode: mode ?? 'development',
-  entry: paths.entry,
+  entry: {
+    main: {
+      import: paths.entry,
+      asyncChunks: true,
+    },
+  },
   output: {
     filename: '[name].[contenthash].js',
     path: paths.output,

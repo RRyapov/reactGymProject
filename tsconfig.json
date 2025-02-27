@@ -20,7 +20,7 @@
       "@entities/*": ["src/entities/*"],
     },
   },
-  "include": ["src/**/*", "public/**/*"],
+  "include": ["src/**/*", "public/**/*", "global.d.ts"],
   "exclude": ["node_modules", "build/**"],
   
   "ts-node": {

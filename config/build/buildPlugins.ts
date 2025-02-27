@@ -12,10 +12,16 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 export function buildPlugins({mode, paths, analyzer, platform}: BuildOptions): Configuration['plugins'] {
   const isDev = mode === 'development';
   const isProd = mode === 'production';
+  const { ModuleFederationPlugin } = require('webpack').container;
+  const deps = require('../../package.json').dependencies;
 
-  
+  const plugins: Configuration['plugins'] = [ new ModuleFederationPlugin({
+    name: 'hostApp',
+    remotes: { remotePrograms: 'remotePrograms@http://localhost:3001/programs.js' },
+    shared: { react: { singleton: true, requiredVersion: deps.react }, 'react-dom': { singleton: true, requiredVersion: deps['react-dom']}},
 
-  const plugins: Configuration['plugins'] = [ new HtmlWebpackPlugin({template: paths.html, favicon: path.resolve(paths.assets, "yellow-strong-man.png" )}), new DefinePlugin({__PLATFORM__: JSON.stringify(platform)}), new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()];
+  }),
+    new HtmlWebpackPlugin({template: paths.html, favicon: path.resolve(paths.assets, "yellow-strong-man.png" )}), new DefinePlugin({__PLATFORM__: JSON.stringify(platform)}), new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()];
 
   if(isDev){
     plugins.push(new ProgressPlugin())

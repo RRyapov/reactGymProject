@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { FC } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { FC, lazy, Suspense } from "react";
+import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
 import { Container, Footer, MainBackground } from "./shared/Container";
 import { Reset } from "styled-reset";
 
@@ -15,20 +15,32 @@ const queryClient = new QueryClient({
 	},
 });
 
+const ProgramsMF = lazy(() => import("remotePrograms/ProgramsMF"));
+const LazyDetailedProgramPage = lazy(
+	() => import("remotePrograms/DetailedProgramPage")
+);
+
 const App: FC = () => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<MainBackground>
 				<Container>
-					<Reset />
 					<Header />
 					<Routes>
 						<Route
 							path="/"
 							element={<MainPage />}
 						/>
+						<Route
+							path="/programs"
+							element={<ProgramsMF />}
+						/>
+						<Route
+							path="/programs:id"
+							element={<LazyDetailedProgramPage />}
+						/>
 					</Routes>
-					<Outlet />
+					<Reset />
 				</Container>
 				<Footer />
 			</MainBackground>
