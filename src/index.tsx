@@ -1,5 +1,5 @@
 async function start() {
-	await import("../bootstrap"); // Или путь к вашему главному компоненту
+	await import("../bootstrap");
 }
 
 start();

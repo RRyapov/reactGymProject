@@ -56,7 +56,10 @@ export const Header: FC = () => {
 					<Link to="/programs">
 						<NavigationLi>Программы тренировок</NavigationLi>
 					</Link>
-					<NavigationLi>Услуги</NavigationLi>
+					<Link to="/services">
+						<NavigationLi>Услуги</NavigationLi>
+					</Link>
+
 					<NavigationLi>СпортЛикбез</NavigationLi>
 					<NavigationLi>Бронирование тренажеров</NavigationLi>
 					<NavigationLi>О нас</NavigationLi>
